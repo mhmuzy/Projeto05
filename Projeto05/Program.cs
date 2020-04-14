@@ -33,7 +33,21 @@ namespace Projeto05
                 }
 
                 produtoController.CadastrarProduto(); //executando o cadastro
+                produtoController.ConsultarProdutos(); //exectando a consulta
 
+
+                Console.Write("Deseja incluir um novo produto? (S,N): ");
+                var escolha = Console.ReadLine();
+
+                if (escolha.ToUpper().StartsWith("S"))
+                {
+                    Console.Clear(); //limpar o console
+                    Main(args); //recursividade
+                }
+                else
+                {
+                    Console.WriteLine("\n - Fim do Programa!");
+                }
             }
             catch (Exception e)
             {

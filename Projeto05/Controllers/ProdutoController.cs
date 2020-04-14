@@ -44,5 +44,20 @@ namespace Projeto05.Controllers
             Console.WriteLine("PRODUTO ADICIONADO COM SUCESSO!");
         }
 
+        public void ConsultarProdutos()
+        {
+            Console.WriteLine("\n - CONSULTA DE PRODUTOS - \n");
+
+            //varrendo todos os Produtos obtidos..
+            foreach (var item in produtoRepository.Consultar())
+            {
+                Console.WriteLine("Id do Produto....: " + item.IdProduto);
+                Console.WriteLine("Nome.............: " + item.Nome);
+                Console.WriteLine("Preço............: " + item.Preco);
+                Console.WriteLine("Quantidade.......: " + item.Quantidade);
+                Console.WriteLine("Categoria........: " + item.Categoria);
+                Console.WriteLine("---");
+            }
+        }
     }
 }
