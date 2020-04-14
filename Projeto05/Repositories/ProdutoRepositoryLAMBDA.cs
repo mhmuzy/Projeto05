@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Projeto05.Entities;
 using Projeto05.Abstracts;
+using Projeto05.Entities.Enums;
 
 namespace Projeto05.Repositories
 {
@@ -66,7 +67,17 @@ namespace Projeto05.Repositories
 
         public override Produto ObterPorId(Guid idProduto)
         {
-            throw new NotImplementedException();
+            return listagemDeProdutos
+                    .Where(p => p.IdProduto == idProduto)
+                    .FirstOrDefault();
+        }
+
+        public override List<Produto> Consultar(Categoria categoria)
+        {
+            return listagemDeProdutos
+                    .Where(p => p.Categoria == categoria)
+                    .OrderBy(p => p.Nome)
+                    .ToList();
         }
     }
 }

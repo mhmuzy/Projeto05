@@ -35,6 +35,8 @@ namespace Projeto05.Abstracts
 
         public abstract List<Produto> Consultar(decimal precoMin, decimal precoMax);
 
+        public abstract List<Produto> Consultar(Categoria categoria);    
+
         public abstract Produto ObterPorId(Guid idProduto);
     }
 }

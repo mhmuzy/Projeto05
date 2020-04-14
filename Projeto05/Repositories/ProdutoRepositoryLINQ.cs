@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Projeto05.Abstracts;
 using Projeto05.Entities;
+using Projeto05.Entities.Enums;
 
 namespace Projeto05.Repositories
 {
@@ -92,6 +93,16 @@ namespace Projeto05.Repositories
             //retornar o primeiro registro encontrado
             //ou null se nenhum for encontrado
             return query.FirstOrDefault();
+        }
+
+        public override List<Produto> Consultar(Categoria categoria)
+        {
+            var query = from p in listagemDeProdutos
+                        where p.Categoria == categoria
+                        orderby p.Categoria ascending
+                        select p;
+
+            return query.ToList();
         }
     }
 }
